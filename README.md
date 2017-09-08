@@ -1,5 +1,5 @@
 # FRAMEWILL #
-Este es el modelo base de aplicación que uso en mis proyectos tratando de emular una estructura MVC y eventualmetne generando un miniframework donde todo tengo ordenado en carpetas model-view-controller (las paginas base estan en raíz pero todo se modela según esas tres carpetas, en el model la lógica de negocio, en el view los HTML que luego llamo y proceso mediante comodines y funciones especiales, y en el controller todos los archivos que procesan información entre los PHP, a veces tambien con salidas JSON o asíncronas).
+Este es el modelo base de aplicación que uso en mis proyectos tratando de emular una estructura MVC y eventualmetne generando un miniframework donde todo tengo ordenado en carpetas model-view-controller (las páginas base están en raíz pero todo se modela según esas tres carpetas, en el model la lógica de negocio, en el view los HTML que luego llamo y proceso mediante comodines y funciones especiales, y en el controller todos los archivos que procesan información entre los PHP, a veces también con salidas JSON o asíncronas).
 
 ## USO ##
 
@@ -7,7 +7,7 @@ Simplemente estructura tu aplicación con la carpeta **Model** como contenedora 
 
     $objeto_de_ejemplo = new model\objeto_ejemplo(1);
 
-De esta forma crearas un objeto con toda la data traida desde la base de datos (una práctica que yo tengo es equivaler las tablas relevantes a un objeto en mi aplicación, así puedo usar de forma versatil la información de ésta. Ojo, el objeto representa a un registro de la tabla, así que suelo usar bastante mis PK's como parametros, en el ejemplo de arriba, el 1 pasado al constructor le dice al objeto con que registro llenarse).
+De esta forma crearás un objeto con toda la data traída desde la DB (una práctica que yo tengo es equivaler las tablas relevantes a un objeto en mi aplicación, así puedo usar de forma versátil la información de ésta. Ojo, el objeto representa a un registro de la tabla, así que suelo usar bastante mis PK's como parametros, en el ejemplo de arriba, el 1 pasado al constructor le dice al objeto con qué registro llenarse).
 
 ##  Funciones ##
     
@@ -30,7 +30,7 @@ La conexión a la base de datos se realiza mediante el objeto `conexion`, éste 
 
 ## Llamando datos relacionados ##
 
-Como en el ejemplo que empaqueto, si necesitamos llamar datos que consideramos anexos a nuestro objeto, es decir, que deberian ser parte de nuestro objeto pero que estan en otras tablas, simplemente tendríamos que realizar una funcion privada dentro de nuestra clase personalizada llamandolos y metiendolos en la variable data, que es de tipo array:
+Como en el ejemplo que empaqueto, si necesitamos llamar datos que consideramos anexos a nuestro objeto, es decir, que deberían ser parte de nuestro objeto pero que están en otras tablas, simplemente tendríamos que realizar una funcion privada dentro de nuestra clase personalizada llamándolos y metiéndolos en la variable data, que es de tipo array:
 
     //clase objeto_personalizado
     class objecto_personalizado extends objeto{
@@ -57,11 +57,11 @@ Como en el ejemplo que empaqueto, si necesitamos llamar datos que consideramos a
 
 ## ¿Qué pasa si mi objeto llama a un registro inexistente? ##
 
-Si por ejemplo tratamos de crear un objeto que hace referencia a un registro que aun no se ha creado en nuestra tabla, por ejemplo:
+Si por ejemplo tratamos de crear un objeto que hace referencia a un registro que aún no se ha creado en nuestra tabla, por ejemplo:
 
     $obj = new model\objeto_prueba(300033); //no existe el registro con id 300033
 
-El objeto se seguira creando, pero sin ninguna funciona existente (a pesar que la tabla si tiene los campos que especificamos en nuestra clase), y ademas al llamar la funcion existe() esta nos devolvera un falso:
+El objeto se seguirá creando, pero sin ninguna función existente (a pesar que la tabla sí tiene los campos que especificamos en nuestra clase), y además al llamar la función existe() ésta nos devolverá un falso:
 
     $obj->existe(); //falso
 
