@@ -1,7 +1,5 @@
 <?php
 
-namespace model;
-
 class example_object extends objeto {
 
     public function __construct(int $id) {

@@ -1,7 +1,5 @@
 <?php
 
-namespace model;
-
 require_once 'data.php';
 ini_set('default_charset', 'utf-8');
 
