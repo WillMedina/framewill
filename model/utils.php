@@ -19,8 +19,6 @@ class utils {
         $string = str_replace($array_danger, "", $string);
         $string = filter_var($string, FILTER_SANITIZE_STRING);
         return $string;
-        //return mysqli_real_escape_string($string); // ok no
-        //pendiente buscar una forma de sanitizar esto
     }
 
     static function sanitize_output($buffer) {
@@ -39,9 +37,8 @@ class utils {
             ''
         );
 
-        $buffer = preg_replace($search, $replace, $buffer);
-
-        return $buffer;
+        $buffer_output = preg_replace($search, $replace, $buffer);
+        return $buffer_output;
     }
 
     static function time_UnixToMySQL($unixtime) {

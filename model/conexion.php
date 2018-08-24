@@ -9,7 +9,7 @@ class conexion {
     protected $cambios = array();
 
     public function __construct() {
-        $this->mysql = new mysqli(_SERVER_, _USUARIOMYSQL_, _CLAVEMYSQL_, _DB_);
+        $this->mysql = new mysqli(_SERVIDORMYSQL_, _USUARIOMYSQL_, _CLAVEMYSQL_, _BDMYSQL_);
         if ($this->mysql->connect_errno) {
             //do something when crash db connection
             die();

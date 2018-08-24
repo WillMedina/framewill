@@ -10,6 +10,7 @@ class example_object extends objeto {
         }
     }
 
+    /*--------------- example private function ---------------*/
     private function get_cat_name() {
         $mysql = $this->get_mysql();
         $sql = 'SELECT cat_name FROM category WHERE cat_id =\'' . $this->get_data("cat_id") . '\'';
