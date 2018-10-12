@@ -57,4 +57,19 @@ class utils {
         return $myFormatForView;
     }
 
+    static function v_dump($variable, $json = false) {
+        $salida = null;
+        ob_start();
+        var_dump($variable);
+        $result = ob_get_clean();
+
+        if (!$json) {
+            $salida = '<pre>' . $result . '</pre>';
+        } else {
+            $salida = str_replace('"', '\"', $result);
+        }
+
+        return $salida;
+    }
+
 }

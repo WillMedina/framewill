@@ -24,7 +24,8 @@ De esta forma crearás un objeto con toda la data traída desde la DB (una prác
 La conexión a la base de datos se realiza mediante el objeto `conexion`, éste puede traer al puntero que realiza la conexión en caso queramos realizar nuestras propias consultas:
 
     $c = new conexion();
-    $puntero_mysql = $c->get_mysql();
+    //$puntero_mysql ahora es el objeto mysqli que hemos centralizado
+    $puntero_mysql = $c->get_mysql(); 
     
     //esto devolera un resultset con la data
     $query = $puntero_mysql->query('SELECT employee_id FROM employee');
@@ -37,11 +38,11 @@ Como en el ejemplo que empaqueto, si necesitamos llamar datos que consideramos a
     //clase objeto_personalizado
     class objecto_personalizado extends objeto{
     	public function __construct(int $id){
-    		$campos = ["id"];
-    		parent::_construct($id, "nombre_tabla", $campos,"id");
-			if($this->existe()){
-    			$this->get_otro_dato_en_otra_tabla();
-			}
+            $campos = ["id"];
+            parent::_construct($id, "nombre_tabla", $campos,"id");
+            if($this->existe()){
+                $this->get_otro_dato_en_otra_tabla();
+            }
     }
     
     private function get_otro_dato_en_otra_tabla(){

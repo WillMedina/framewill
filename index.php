@@ -6,7 +6,7 @@ spl_autoload_register(function($clase) {
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset = "UTF-8">
+        <meta charset="UTF-8">
         <title>Testing framewill</title>
     </head>
     <body>
