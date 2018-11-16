@@ -48,7 +48,7 @@ class objeto extends conexion implements objetable {
             return null;
         } else {
             if (array_key_exists($index, $this->data)) {
-                if (is_null($this->data[$index]) or strlen($this->data[$index]) == 0) {
+                if (is_null($this->data[$index])) {
                     return null;
                 } else {
                     return $this->data[$index];
@@ -56,6 +56,14 @@ class objeto extends conexion implements objetable {
             } else {
                 return null;
             }
+        }
+    }
+
+    public function get_json() {
+        if ($this->existe == 0) {
+            return null;
+        } else {
+            return json_encode($this->data);
         }
     }
 
