@@ -4,7 +4,8 @@ class example_object extends objeto {
 
     public function __construct(int $id) {
         $campos = ["employee_id", "cat_id", "name", "surname"];
-        parent::__construct($id, "employee", $campos, "employee_id");
+        $plain_query = ['id' => $id, 'tabla'=> 'employee', 'campos'=> $campos, 'idtable'=>'employee_id'];
+        parent::__construct($plain_query);
         if ($this->existe()) {
             $this->get_cat_name();
         }
