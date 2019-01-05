@@ -18,6 +18,7 @@ class objeto extends conexion implements objetable {
             parent::__construct();
             $sql = "CALL {$sp['nombre']}({$this->param_sp($sp['parametros'])})";
             $exe = $this->mysql->query($sql);
+            $this->mysql->next_result();
         }
 
         if ($exe === false) {
