@@ -2,9 +2,19 @@
 
 class utils {
 
+    // Esto resuelve el problema del OPENSSL
+    // https://jorgearce.es/index.php/post/2017/08/07/file_get_contents%28%29%3A-Failed-to-enable-crypto
+    // https://stackoverflow.com/questions/26148701/file-get-contents-ssl-operation-failed-with-code-1-and-more
+    static $arrContextOptions = array(
+        "ssl" => array(
+            "verify_peer" => false,
+            "verify_peer_name" => false,
+        ),
+    );
+
     static function output_html($stream, $array_cambios = null) {
         if (!is_null($array_cambios)) {
-            $archivo = file_get_contents($stream);
+            $archivo = file_get_contents($stream, false, stream_context_create(self::$arrContextOptions));
             $indices = array_keys($array_cambios);
             $valores = array_values($array_cambios);
             $stream = str_replace($indices, $valores, $archivo);
