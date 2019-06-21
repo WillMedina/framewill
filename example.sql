@@ -26,5 +26,5 @@ ALTER TABLE `category`
 ALTER TABLE `employee`
   MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
 
-INSERT INTO employee(cat_id, `name`, surname) VALUES('1', 'test', 'user');
-INSERT INTO category(cat_id, cat_name) VALUES('1', 'test category');
+INSERT INTO employee(cat_id, `name`, surname) VALUES('1', 'test', 'user'), ('2','testing', 'profile');
+INSERT INTO category(cat_id, cat_name) VALUES('1', 'test category'), ('2','another test category');

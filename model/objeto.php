@@ -1,11 +1,13 @@
 <?php
 
-class objeto extends conexion implements objetable {
+class objeto extends conexion implements objetable
+{
 
     private $existe = 0;
     protected $data = array();
 
-    public function __construct($plain_query = null, $sp = null) {
+    public function __construct($plain_query = null, $sp = null)
+    {
         $exe = false;
         if (!is_null($plain_query) and is_array($plain_query)) {
             if ($plain_query["id"] > 0 and is_array($plain_query['campos'])) {
@@ -35,7 +37,8 @@ class objeto extends conexion implements objetable {
         }
     }
 
-    private function campos_string($array) {
+    private function campos_string($array)
+    {
         if (is_array($array)) {
             $salida = implode(", ", $array);
             return $salida;
@@ -44,7 +47,8 @@ class objeto extends conexion implements objetable {
         }
     }
 
-    private function param_sp($array) {
+    private function param_sp($array)
+    {
         if (is_array($array)) {
             $nuevo_arr = [];
 
@@ -59,7 +63,8 @@ class objeto extends conexion implements objetable {
         }
     }
 
-    public function existe() {
+    public function existe()
+    {
         if ($this->existe == 0) {
             return false;
         } else {
@@ -67,7 +72,8 @@ class objeto extends conexion implements objetable {
         }
     }
 
-    public function get_data($index) {
+    public function get_data($index)
+    {
         if ($this->existe == 0) {
             return null;
         } else {
@@ -83,7 +89,8 @@ class objeto extends conexion implements objetable {
         }
     }
 
-    public function get_json() {
+    public function get_json()
+    {
         if ($this->existe == 0) {
             return null;
         } else {
